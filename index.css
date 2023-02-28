@@ -1,0 +1,188 @@
+:root {
+    --form-input-height: 2rem;
+    --hacker-green: rgb(0, 200, 0);
+  }
+
+
+
+body {
+    
+    background: rgb(154,217,198);
+    background: linear-gradient(90deg, rgba(154,217,198,1) 0%, rgba(166,224,139,1) 100%);
+    background-size: 400% 100%;
+    animation: cycling-gradient 40s ease infinite;
+
+}
+@keyframes cycling-gradient {
+    0% {background-position: 0% 50%;}
+
+    50% {background-position: 100% 50%;}
+
+    100% {background-position: 0% 50%;}
+}
+
+
+.animated-background {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 500px;
+    align-items: flex-end;
+}
+@media screen and (max-height: 600px) { 
+    .animated-background {
+        height: 200px;
+    }
+}
+
+#login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background-color: black;
+    width: 100%;
+    
+}
+
+#login-form-box {
+    display: flex;
+    flex-flow: row nowrap;
+    column-gap: 2rem;
+    align-items: flex-end;
+    
+}
+
+input {
+    height: var(--form-input-height);
+    font-weight: 400;
+    background-color: black;
+    color: var(--hacker-green);
+    border:none;
+
+    
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(to left, black 0%, var(--hacker-green) 0%, var(--hacker-green) 0%, black 0%, black 100%) 1;
+    transition: border-bottom 0.2;
+    border-top:none;
+    border-right:none;
+    border-left:none;
+  
+    
+}
+
+@keyframes underline {
+    0%{
+        border-width: 2px;
+        border-style: solid;
+        border-image: linear-gradient(to left, black 0%, var(--hacker-green) 0%, var(--hacker-green) 0%, black 0%, black 100%) 1;
+        transition: border-bottom 0.2;
+        border-top:none;
+        border-right:none;
+        border-left:none;
+    }
+    25% {
+        border-width: 2px;
+        border-style: solid;
+        border-image: linear-gradient(to left, black 0%, var(--hacker-green) 0%, var(--hacker-green) 0%, black 25%, black 100%) 1;
+        transition: border-bottom 0.2;
+        border-top:none;
+        border-right:none;
+        border-left:none;
+    }
+    50% {
+        border-width: 2px;
+        border-style: solid;
+        border-image: linear-gradient(to left, black 0%, var(--hacker-green) 0%, var(--hacker-green) 50%, black 75%, black 100%) 1;
+        transition: border-bottom 0.2;
+        border-top:none;
+        border-right:none;
+        border-left:none;
+    }
+    75% {
+        border-width: 2px;
+        border-style: solid;
+        border-image: linear-gradient(to left, black 0%, var(--hacker-green) 0%, var(--hacker-green) 75%, black 100%, black 100%) 1;
+        transition: border-bottom 0.2;
+        border-top:none;
+        border-right:none;
+        border-left:none;
+    }
+    100%{
+        border-width: 2px;
+        border-style: solid;
+        border-image: linear-gradient(to left, black 0%, var(--hacker-green) 50%, var(--hacker-green) 100%, black 100%) 1;
+        transition: border-bottom 0.2;
+        border-top:none;
+        border-right:none;
+        border-left:none;
+        color: var(--hacker-green)
+    }
+}
+
+input:focus-visible {
+    outline: none;
+    animation: underline .3s linear 1;
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(to left, black 0%, var(--hacker-green) 50%, var(--hacker-green) 100%, black 100%) 1;
+    transition: border-bottom 0.2;
+    border-top:none;
+    border-right:none;
+    border-left:none;
+}
+input:focus-visible::placeholder {
+    color: var(--hacker-green)
+}
+
+button {
+    height: var(--form-input-height);
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(to right, black 100%,var(--hacker-green) 0%, var(--hacker-green) 0%) 1;
+}
+
+@keyframes border {
+    0%{
+        border-width: 2px;
+        border-style: solid;
+        border-image: linear-gradient(to left, black 0%, var(--hacker-green) 0%, var(--hacker-green) 0%, black 0%, black 100%) 1;
+        transition: border-bottom 0.2;
+        color: white;
+    }
+    25% {
+        border-width: 2px;
+        border-style: solid;
+        border-image: linear-gradient(to left, black 0%, var(--hacker-green) 0%, var(--hacker-green) 0%, black 25%, black 100%) 1;
+        transition: border-bottom 0.2;
+    }
+    50% {
+        border-width: 2px;
+        border-style: solid;
+        border-image: linear-gradient(to left, black 0%, var(--hacker-green) 0%, var(--hacker-green) 50%, black 75%, black 100%) 1;
+        transition: border-bottom 0.2;
+    }
+    75% {
+        border-width: 2px;
+        border-style: solid;
+        border-image: linear-gradient(to left, black 0%, var(--hacker-green) 0%, var(--hacker-green) 75%, black 100%, black 100%) 1;
+        transition: border-bottom 0.2;
+    }
+    100%{
+        border-width: 2px;
+        border-style: solid;
+        border-image: linear-gradient(to left, black 0%, var(--hacker-green) 50%, var(--hacker-green) 100%, black 100%) 1;
+        transition: border-bottom 0.2;
+        color: var(--hacker-green);
+    }
+}
+
+button:hover {
+    animation: border 0.2s linear 1;
+    border-image: linear-gradient(to left, black, var(--hacker-green)) 1;
+    color: var(--hacker-green);
+}
