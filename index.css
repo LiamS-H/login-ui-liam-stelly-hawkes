@@ -15,6 +15,7 @@ html, body {
     background: linear-gradient(90deg, rgba(154,217,198,1) 0%, rgba(166,224,139,1) 100%);
     background-size: 400% 100%;
     animation: cycling-gradient 40s ease infinite;
+
 }
 
 
@@ -30,24 +31,31 @@ html, body {
     position: absolute;
 }
 
-
-
-#login {
-    justify-self: center;
+.form-banner {
+    display:flex;
     align-self: center;
-
-    display: flex;
     flex-flow: row nowrap;
-    align-items: center;
     justify-content: center;
 
+    width: 100%;
+}
+
+.form-box {
+    display:flex;
+}
+
+#login {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+    
     padding: 10px;
 
     background-color: transparent;
     border:none;
-    width: 100%;
 }
-@media screen and (max-width: 500px) { 
+@media screen and (max-width: 980px) { 
     #login {
         flex-flow: column nowrap;
         align-items: flex-start;
