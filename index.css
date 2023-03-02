@@ -1,6 +1,7 @@
 :root {
     --form-input-height: 2rem;
-    --highlights: rgb(4, 43, 116);
+    --border-highlights: rgb(27, 2, 170);
+    --border-main-color: rgb(133, 133, 133);
   }
 
 
@@ -16,6 +17,7 @@ html, body {
     background-size: 400% 100%;
     animation: cycling-gradient 40s ease infinite;
 
+    font-family: sans-serif;
 }
 
 
@@ -42,37 +44,41 @@ html, body {
 
 .form-box {
     display:flex;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+
+    box-shadow: 3px 3px 5px rgb(164, 207, 235);
 }
 
 #login {
     display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
+    flex-flow: column wrap;
+    align-items: center;
     justify-content: center;
     
-    padding: 10px;
+    row-gap: 1rem;
+    padding: 2rem;
 
-    background-color: transparent;
+
+    background-color: white;
     border:none;
 }
-@media screen and (max-width: 980px) { 
+/* @media screen and (max-height: 400px) { 
     #login {
-        flex-flow: column nowrap;
-        align-items: flex-start;
-        row-gap: 2px;
+        flex-flow: row wrap;
     }
-}
+} */
 
 input {
     height: var(--form-input-height);
-    background-color: transparent;
-    color: var(--highlights);
+    background-color: white;
+    color: var(--border-highlights);
 
     
     border-width: 2px;
     border-style: solid;
-    border-image: linear-gradient(to left, transparent 0%, var(--highlights) 0%, var(--highlights) 0%, transparent 0%, transparent 100%) 1;
-    transition: border-bottom 0.2;
+    border-image: linear-gradient(to left, transparent 0%, var(--border-highlights) 0%, var(--border-highlights) 0%, var(--border-main-color) 0%, var(--border-main-color) 100%) 1;
     border-top:none;
     border-right:none;
     border-left:none;
@@ -84,8 +90,7 @@ input {
     0%{
         border-width: 2px;
         border-style: solid;
-        border-image: linear-gradient(to left, transparent 0%, var(--highlights) 0%, var(--highlights) 0%, transparent 0%, transparent 100%) 1;
-        transition: border-bottom 0.2;
+        border-image: linear-gradient(to left, transparent 0%, var(--border-highlights) 0%, var(--border-highlights) 0%, var(--border-main-color) 0%, var(--border-main-color) 100%) 1;
         border-top:none;
         border-right:none;
         border-left:none;
@@ -93,8 +98,7 @@ input {
     25% {
         border-width: 2px;
         border-style: solid;
-        border-image: linear-gradient(to left, transparent 0%, var(--highlights) 0%, var(--highlights) 0%, transparent 25%, transparent 100%) 1;
-        transition: border-bottom 0.2;
+        border-image: linear-gradient(to left, transparent 0%, var(--border-highlights) 0%, var(--border-highlights) 0%, var(--border-main-color) 25%, var(--border-main-color) 100%) 1;
         border-top:none;
         border-right:none;
         border-left:none;
@@ -102,8 +106,7 @@ input {
     50% {
         border-width: 2px;
         border-style: solid;
-        border-image: linear-gradient(to left, transparent 0%, var(--highlights) 0%, var(--highlights) 50%, transparent 75%, transparent 100%) 1;
-        transition: border-bottom 0.2;
+        border-image: linear-gradient(to left, transparent 0%, var(--border-highlights) 0%, var(--border-highlights) 50%, var(--border-main-color) 75%, var(--border-main-color) 100%) 1;
         border-top:none;
         border-right:none;
         border-left:none;
@@ -111,8 +114,7 @@ input {
     75% {
         border-width: 2px;
         border-style: solid;
-        border-image: linear-gradient(to left, transparent 0%, var(--highlights) 0%, var(--highlights) 75%, transparent 100%, transparent 100%) 1;
-        transition: border-bottom 0.2;
+        border-image: linear-gradient(to left, transparent 0%, var(--border-highlights) 0%, var(--border-highlights) 75%, var(--border-main-color) 100%, var(--border-main-color) 100%) 1;
         border-top:none;
         border-right:none;
         border-left:none;
@@ -120,12 +122,11 @@ input {
     100%{
         border-width: 2px;
         border-style: solid;
-        border-image: linear-gradient(to left, transparent 0%, var(--highlights) 50%, var(--highlights) 100%, transparent 100%) 1;
-        transition: border-bottom 0.2;
+        border-image: linear-gradient(to left, transparent 0%, var(--border-highlights) 50%, var(--border-highlights) 100%, var(--border-main-color) 100%) 1;
         border-top:none;
         border-right:none;
         border-left:none;
-        color: var(--highlights)
+        color: var(--border-highlights)
     }
 }
 
@@ -134,63 +135,30 @@ input:focus-visible {
     animation: underline .3s linear 1;
     border-width: 2px;
     border-style: solid;
-    border-image: linear-gradient(to left, transparent 0%, var(--highlights) 50%, var(--highlights) 100%, transparent 100%) 1;
-    transition: border-bottom 0.2;
+    border-image: linear-gradient(to left, transparent 0%, var(--border-highlights) 50%, var(--border-highlights) 100%, var(--border-main-color) 100%) 1;
     border-top:none;
     border-right:none;
     border-left:none;
 }
 input:focus-visible::placeholder {
-    color: var(--highlights)
+    color: var(--border-highlights)
+}
+
+#submit {
+    width: 100%;
+    flex-shrink: 1;
 }
 
 button {
     height: var(--form-input-height);
     font-weight: bold;
     color: white;
-    background-color: transparent;
-    border-width: 2px;
-    border-style: solid;
-    border-image: linear-gradient(to right, transparent 100%,var(--highlights) 0%, var(--highlights) 0%) 1;
-}
-
-@keyframes border {
-    0%{
-        border-width: 2px;
-        border-style: solid;
-        border-image: linear-gradient(to left, transparent 0%, var(--highlights) 0%, var(--highlights) 0%, transparent 0%, transparent 100%) 1;
-        transition: border-bottom 0.2;
-        color: white;
-    }
-    25% {
-        border-width: 2px;
-        border-style: solid;
-        border-image: linear-gradient(to left, transparent 0%, var(--highlights) 0%, var(--highlights) 0%, transparent 25%, transparent 100%) 1;
-        transition: border-bottom 0.2;
-    }
-    50% {
-        border-width: 2px;
-        border-style: solid;
-        border-image: linear-gradient(to left, transparent 0%, var(--highlights) 0%, var(--highlights) 50%, transparent 75%, transparent 100%) 1;
-        transition: border-bottom 0.2;
-    }
-    75% {
-        border-width: 2px;
-        border-style: solid;
-        border-image: linear-gradient(to left, transparent 0%, var(--highlights) 0%, var(--highlights) 75%, transparent 100%, transparent 100%) 1;
-        transition: border-bottom 0.2;
-    }
-    100%{
-        border-width: 2px;
-        border-style: solid;
-        border-image: linear-gradient(to left, transparent 0%, var(--highlights) 50%, var(--highlights) 100%, transparent 100%) 1;
-        transition: border-bottom 0.2;
-        color: var(--highlights);
-    }
+    background-color: rgb(19, 144, 222);
+    width: 100%;
+    border: none;
+    border-radius: 25px;
 }
 
 button:hover {
-    animation: border 0.2s linear 1;
-    border-image: linear-gradient(to left, transparent, var(--highlights)) 1;
-    color: var(--highlights);
+    background-color: var(--border-highlights);
 }
