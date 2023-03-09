@@ -7,20 +7,27 @@
 
 
 html, body {
+    /* make body and html the size of viewport */
     height:100%;
     width: 100%;
     margin:0;
     padding:0;
+    
     display: flex;
-    background: rgb(154,217,198);
+
+    /* fonts */
+    font-family: sans-serif;
+
+    /* background */
+    background: rgb(154,217,198); /* if gradient doesn't load */
     background: linear-gradient(90deg, rgba(154,217,198,1) 0%, rgba(166,224,139,1) 100%);
     background-size: 400% 100%;
     animation: cycling-gradient 40s ease infinite;
 
-    font-family: sans-serif;
+    
 }
 
-
+/* background animation, achieved by translating a zoomed in gradient */
 @keyframes cycling-gradient {
     0% {background-position: 0% 50%;}
 
@@ -29,10 +36,7 @@ html, body {
     100% {background-position: 0% 50%;}
 }
 
-.navbar {
-    position: absolute;
-}
-
+/* form banner is used to avoid using justify content center on body, it is the width of page and height of child elements */
 .form-banner {
     display:flex;
     align-self: center;
@@ -40,13 +44,16 @@ html, body {
     justify-content: center;
 
     width: 100%;
+    min-width: 100px;
 }
 
+/* div that wraps the form, allows for form alignment within box. ei: centered form in 60% width with contents aligned left */
 .form-box {
     display:flex;
     background-color: white;
     padding: 10px;
     border-radius: 10px;
+    
 
     box-shadow: 3px 3px 5px rgb(164, 207, 235);
 }
@@ -60,21 +67,40 @@ html, body {
     row-gap: 1rem;
     padding: 2rem;
 
+    width: 25vw;
+    min-width: 20em;
 
     background-color: white;
     border:none;
 }
-/* @media screen and (max-height: 400px) { 
-    #login {
-        flex-flow: row wrap;
-    }
-} */
+
+button {
+    height: var(--form-input-height);
+    background-color: rgb(19, 144, 222);
+    
+    font-weight: bold;
+    color: white;
+    
+    
+    width: 70%;
+    max-width: 300px;
+
+    border: none;
+    border-radius: 25px;
+}
+
+button:hover {
+    background-color: var(--border-highlights);
+}
 
 input {
     height: var(--form-input-height);
     background-color: white;
+    
     color: var(--border-highlights);
 
+    width: 70%;
+    max-width: 300px;
     
     border-width: 2px;
     border-style: solid;
@@ -130,6 +156,7 @@ input {
     }
 }
 
+/* animate the bottom border (underline) on focus */
 input:focus-visible {
     outline: none;
     animation: underline .3s linear 1;
@@ -140,25 +167,8 @@ input:focus-visible {
     border-right:none;
     border-left:none;
 }
+
+/* change the placeholder text color on focus */
 input:focus-visible::placeholder {
     color: var(--border-highlights)
-}
-
-#submit {
-    width: 100%;
-    flex-shrink: 1;
-}
-
-button {
-    height: var(--form-input-height);
-    font-weight: bold;
-    color: white;
-    background-color: rgb(19, 144, 222);
-    width: 100%;
-    border: none;
-    border-radius: 25px;
-}
-
-button:hover {
-    background-color: var(--border-highlights);
 }
